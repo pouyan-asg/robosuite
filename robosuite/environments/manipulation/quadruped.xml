@@ -1,0 +1,53 @@
+<mujoco model="simple_quadruped">
+    <option timestep="0.01" gravity="0 0 -9.81"/>
+    <size njmax="1000" nconmax="200"/>
+
+    <default>
+        <geom rgba="0.6 0.6 0.6 1" condim="3" friction="1 0.1 0.1"/>
+        <joint limited="true" damping="1"/>
+    </default>
+
+    <worldbody>
+        <!-- Ground -->
+        <geom name="floor" type="plane" size="5 5 0.1" rgba="0.2 0.3 0.4 1"/>
+
+        <!-- Robot base -->
+        <body name="torso" pos="0 0 0.3">
+            <geom type="box" size="0.1 0.05 0.03" rgba="0.8 0.4 0.1 1"/>
+
+            <!-- Front left leg -->
+            <body name="front_left_leg" pos="0.1  0.05 0">
+                <joint name="fl_hip" axis="0 1 0" range="-30 30"/>
+                <geom type="capsule" fromto="0 0 0 0 0 -0.2" size="0.02"/>
+            </body>
+
+            <!-- Front right leg -->
+            <body name="front_right_leg" pos="0.1 -0.05 0">
+                <joint name="fr_hip" axis="0 1 0" range="-30 30"/>
+                <geom type="capsule" fromto="0 0 0 0 0 -0.2" size="0.02"/>
+            </body>
+
+            <!-- Back left leg -->
+            <body name="back_left_leg" pos="-0.1  0.05 0">
+                <joint name="bl_hip" axis="0 1 0" range="-30 30"/>
+                <geom type="capsule" fromto="0 0 0 0 0 -0.2" size="0.02"/>
+            </body>
+
+            <!-- Back right leg -->
+            <body name="back_right_leg" pos="-0.1 -0.05 0">
+                <joint name="br_hip" axis="0 1 0" range="-30 30"/>
+                <geom type="capsule" fromto="0 0 0 0 0 -0.2" size="0.02"/>
+            </body>
+        </body>
+
+        <!-- Camera -->
+        <camera name="sideview" pos="1 -1 0.5" xyaxes="1 1 0 0 0 1"/>
+    </worldbody>
+
+    <actuator>
+        <motor joint="fl_hip" ctrlrange="-1 1" gear="1"/>
+        <motor joint="fr_hip" ctrlrange="-1 1" gear="1"/>
+        <motor joint="bl_hip" ctrlrange="-1 1" gear="1"/>
+        <motor joint="br_hip" ctrlrange="-1 1" gear="1"/>
+    </actuator>
+</mujoco>

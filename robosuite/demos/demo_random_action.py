@@ -46,6 +46,8 @@ if __name__ == "__main__":
         ignore_done=True,
         use_camera_obs=False,
         control_freq=20,
+        camera_names="robotview",
+        # render_camera="agentview",
     )
     env.reset()
     env.viewer.set_camera(camera_id=0)

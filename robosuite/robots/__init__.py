@@ -1,5 +1,5 @@
-from .fixed_base_robot import FixedBaseRobot
 from .mobile_robot import MobileRobot
+from .fixed_base_robot import FixedBaseRobot
 from .wheeled_robot import WheeledRobot
 from .legged_robot import LeggedRobot
 
