@@ -63,6 +63,7 @@ class Robot(object):
         control_freq=20,
         lite_physics=True,
     ):
+        # print(REGISTERED_ROBOTS.keys())
         self.arms = REGISTERED_ROBOTS[robot_type].arms
 
         # TODO: Merge self.part_controller_config and self.composite_controller_config into one

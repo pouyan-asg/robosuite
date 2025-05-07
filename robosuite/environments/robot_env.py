@@ -594,6 +594,9 @@ class RobotEnv(MujocoEnv):
         Instantiates robots and stores them within the self.robots attribute
         """
         # Loop through robots and instantiate Robot object for each
+        print(self.robot_names)
+        print(self.robot_configs)
+        print(zip(self.robot_names, self.robot_configs))
         for idx, (name, config) in enumerate(zip(self.robot_names, self.robot_configs)):
             # Create the robot instance
             self.robots[idx] = ROBOT_CLASS_MAPPING[name](robot_type=name, idn=idx, **config)

@@ -6,7 +6,7 @@ from mujoco import viewer
 import os
 
 # Path to your MJCF XML file
-model_path = "/home/pouyan/phd/imitation_learning/robosuite/robosuite/models/assets/robots/mecademic_description/urdf/meca500.xml"
+model_path = "/home/pouyan/phd/imitation_learning/robosuite/robosuite/models/assets/robots/meca500/robot.xml"
 # model_path = "/home/pouyan/phd/imitation_learning/robosuite/robosuite/environments/manipulation/quadruped.xml"
 assert os.path.exists(model_path), f"File not found: {model_path}"
 
